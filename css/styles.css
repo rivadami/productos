@@ -1,0 +1,60 @@
+#employeePic {
+	float: left;
+	padding-right: 10px;
+	padding-bottom: 16px;
+}
+
+#employeeDetails p {
+	margin-top: 0px;
+	margin-bottom: 8px;
+}
+
+#actionList {
+	clear: both;
+}
+
+.ui-body-c .ui-link{
+	text-decoration: none;
+	color: #f9a41a;
+}
+.ui-body-c .ui-link:hover{
+	text-decoration: underline;
+}
+
+#logo img{
+	no-repeat;
+	width:80%;
+	margin: 0 auto;
+	text-align:center;
+	margin: 5px 10% 0 10%;
+	
+}
+
+.ui-bar-a {
+    border: 1px solid #2A2A2A;
+    letter-spacing: 0.5px;
+    background-image: url("images/fondo.jpg");
+    color: #f9a41a;
+    font-weight: bold;
+    text-shadow: none;
+}
+
+.ui-header .ui-title {
+	margin: 0.6em 0px 0.8em;
+}
+
+.ui-btn-up-a {
+    color: #f9a41a;
+}
+
+.ui-btn-up-c {
+    font-weight: bold;
+    color: #444;
+    text-shadow: 0px 1px 1px #F6F6F6;
+}
+
+#fotoProducto{
+	width:100%;
+	
+}
+

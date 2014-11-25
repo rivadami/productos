@@ -1,0 +1,151 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0a4.1/jquery.mobile-1.0a4.1.min.css" />
+<link rel="stylesheet" href="css/styles.css" />
+
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+
+</head>
+     
+ 
+<body>
+
+    
+    <div data-role="page" id="inicio">
+    <div id="logo">
+    	<img src="css/images/manjaresfiestas.png" alt="Manjares Fiestas" > 
+	</div>
+	<div data-role="header">
+	<h1>Autenticacion de Usuario</h1>
+	</div>
+	<div data-role="content">	
+	<form id="formulario" >
+	<label> Usuario </label>
+	<input type="text" id="nombredeusuario" name="nombredeusuario">
+	<label> Password </label>
+	<input type="password" id="clave" name="clave" >
+	 
+	<input type="submit" value="Login" id="botonLogin">
+	</form>	
+	</div>
+	
+	<div data-role="footer">
+	<h2><a href="#crearUsuario">Crear Usuario</a></h2>
+	</div><!-- /header -->
+	
+	</div>
+
+    <!----------------------------------------------->
+    
+    <script>
+ 
+	$('#formulario').submit(function() {
+	// recolecta los valores que inserto el usuario
+	var datosUsuario = $("#nombredeusuario").val()
+	var datosPassword = $("#clave").val()
+	archivoValidacion = "services/validacion_contra_base_datos.php?jsoncallback=?"
+	 
+	$.getJSON( archivoValidacion, { usuario:datosUsuario ,password:datosPassword})
+	.done(function(respuestaServer) {
+	
+	if(respuestaServer.validacion == "ok"){
+	/// si la validacion es correcta, muestra la pantalla "home"
+	$.mobile.changePage("#productsListPage")
+	//$('#productsListPage').append('<li><a href="ssa"</a></li>');
+	 //window.location="index.html";
+	
+	}else{
+	/// ejecutar una conducta cuando la validacion falla
+	    alert(respuestaServer.mensaje + "\nGenerado en: " + respuestaServer.hora + "\n" +respuestaServer.generador)
+	}
+	})
+	return false;
+	})
+	
+	</script>
+	 
+	 
+	 <!----------------------------------------------->
+     
+	 
+	<div id="crearUsuario" data-role="page" >
+
+
+	<div data-role="header">
+	<h1>Crear Usuario</h1>
+	</div>
+	<div data-role="content">	
+	<form id="formulario2" >
+	<label> Nombre </label>
+	<input type="text" id="nombre" name="nombre">
+	<label> Usuario </label>
+	<input type="text" id="nombredeusuario" name="nombredeusuario">
+	<label> Password </label>
+	<input type="password" id="clave" name="clave" >
+	 
+	<input type="submit" value="Crear" id="botonLogin">
+	</form>	
+	</div>
+
+
+	</div>
+
+	<script>
+ 
+	$('#formulario2').submit(function() {
+	// recolecta los valores que inserto el usuario
+	var nombreUsuario = $("#nombre").val()
+	var datosUsuario = $("#nombredeusuario").val()
+	var datosPassword = $("#clave").val()
+	archivoValidacion = "services/validacion_contra_base_datos2.php?jsoncallback=?"
+	 
+	$.getJSON( archivoValidacion, { nombre:nombreUsuario ,usuario:datosUsuario ,password:datosPassword})
+	.done(function(respuestaServer) {
+	
+	if(respuestaServer.validacion == "ok"){
+	/// si la validacion es correcta, muestra la pantalla "home"
+	$.mobile.changePage("#productsListPage")
+	//$('#productsListPage').append('<li><a href="ssa"</a></li>');
+	 //window.location="index.html";
+	
+	}else{
+	/// ejecutar una conducta cuando la validacion falla
+	    alert(respuestaServer.mensaje + "\nGenerado en: " + respuestaServer.hora + "\n" +respuestaServer.generador)
+	}
+	})
+	return false;
+	})
+	
+	</script>
+
+	<div id="productsListPage" data-role="page" >
+		
+		<div id="logo">
+    		<img src="css/images/manjaresfiestas.png" alt="Manjares Fiestas" > 
+		</div>	
+			
+		<div data-role="header" data-position="fixed">
+			<h1>Recetas</h1>
+		</div>
+
+		<div data-role="content">
+	         <ul id="productsList" data-role="listview" data-filter="true"></ul>
+	    </div>		
+
+	</div>
+	
+
+	<script src="js/jquery.js"></script>
+	<script src="js/jquery.mobile-1.0rc1.min.js"></script>
+	<script src="js/productList.js"></script>
+	<script src="js/productList2.js"></script>
+	<script src="js/productDetail.js"></script>
+	<script src="js/reportlist.js"></script>
+
+</body>
+
+</html>
