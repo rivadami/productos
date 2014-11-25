@@ -47,8 +47,8 @@
 	// recolecta los valores que inserto el usuario
 	var datosUsuario = $("#nombredeusuario").val()
 	var datosPassword = $("#clave").val()
-	archivoValidacion = "services/validacion_contra_base_datos.php?jsoncallback=?"
-	 
+	archivoValidacion = "http://ps.manjaresfiestas.com.ar/productos/services/validacion_contra_base_datos.php?jsoncallback=?"
+	
 	$.getJSON( archivoValidacion, { usuario:datosUsuario ,password:datosPassword})
 	.done(function(respuestaServer) {
 	
@@ -101,7 +101,7 @@
 	var nombreUsuario = $("#nombre").val()
 	var datosUsuario = $("#nombredeusuario").val()
 	var datosPassword = $("#clave").val()
-	archivoValidacion = "services/validacion_contra_base_datos2.php?jsoncallback=?"
+	archivoValidacion = "http://ps.manjaresfiestas.com.ar/productos/services/validacion_contra_base_datos2.php?jsoncallback=?"
 	 
 	$.getJSON( archivoValidacion, { nombre:nombreUsuario ,usuario:datosUsuario ,password:datosPassword})
 	.done(function(respuestaServer) {
